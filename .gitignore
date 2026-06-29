@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+venv/
+data/input_raster/*
+data/output_vector/*
+!data/input_raster/.gitkeep
+!data/output_vector/.gitkeep
