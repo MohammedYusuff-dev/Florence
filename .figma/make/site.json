@@ -1,1 +1,10 @@
-{}
+{
+  "title": "Florence",
+  "description": "A small space, made quietly for you.",
+  "icons": {
+    "icon": "/florence-icon.svg"
+  },
+  "robots": {
+    "index": false
+  }
+}
