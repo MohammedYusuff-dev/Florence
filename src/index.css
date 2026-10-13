@@ -1,0 +1,666 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500&display=swap");
+@import "tailwindcss";
+
+:root {
+  font-family: "Manrope", sans-serif;
+  color: #eee5db;
+  background: #100d0f;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #100d0f;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 82% 12%, rgba(94, 38, 53, 0.23), transparent 34rem),
+    radial-gradient(circle at 15% 62%, rgba(52, 23, 41, 0.26), transparent 42rem),
+    #100d0f;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 1px solid #c8999f;
+  outline-offset: 4px;
+}
+
+.site-shell {
+  min-height: 100vh;
+  overflow: clip;
+}
+
+.garden-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 74% 22%, rgba(114, 51, 64, 0.2), transparent 30rem),
+    linear-gradient(120deg, transparent 48%, rgba(74, 29, 43, 0.12));
+  pointer-events: none;
+}
+
+.rose-field {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.rose-bloom {
+  position: absolute;
+  display: block;
+  width: clamp(7rem, 13vw, 12rem);
+  aspect-ratio: 1;
+  opacity: 0.3;
+  filter: drop-shadow(0 1.5rem 2.5rem rgba(32, 8, 41, 0.45));
+  transform: rotate(-14deg);
+}
+
+.rose-bloom i,
+.rose-bloom b {
+  position: absolute;
+  display: block;
+  border: 1px solid rgba(193, 143, 205, 0.22);
+  background:
+    radial-gradient(circle at 68% 28%, rgba(185, 123, 198, 0.42), transparent 24%),
+    linear-gradient(145deg, rgba(104, 47, 120, 0.7), rgba(50, 20, 68, 0.88));
+  box-shadow: inset -0.5rem -0.7rem 1.2rem rgba(25, 7, 35, 0.55);
+}
+
+.rose-bloom i:nth-child(1) {
+  inset: 5% 18% 32% 8%;
+  border-radius: 58% 42% 56% 44% / 48% 56% 44% 52%;
+  transform: rotate(-24deg);
+}
+
+.rose-bloom i:nth-child(2) {
+  inset: 18% 3% 14% 35%;
+  border-radius: 45% 55% 38% 62% / 57% 38% 62% 43%;
+  transform: rotate(18deg);
+}
+
+.rose-bloom i:nth-child(3) {
+  inset: 36% 30% 3% 12%;
+  border-radius: 62% 38% 54% 46% / 44% 55% 45% 56%;
+  transform: rotate(38deg);
+}
+
+.rose-bloom b {
+  inset: 31%;
+  border-radius: 58% 42% 62% 38% / 46% 64% 36% 54%;
+  background: linear-gradient(135deg, #9a5aaa, #3b174b);
+  transform: rotate(45deg);
+}
+
+.rose-bloom--one {
+  top: 12%;
+  right: 7%;
+}
+
+.rose-bloom--two {
+  right: 23%;
+  bottom: 9%;
+  width: clamp(4rem, 8vw, 7rem);
+  opacity: 0.19;
+  transform: rotate(23deg);
+}
+
+.rose-bloom--three {
+  top: 34%;
+  right: -3%;
+  width: clamp(5rem, 9vw, 8rem);
+  opacity: 0.2;
+  transform: rotate(52deg);
+}
+
+.gate {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(13, 11, 13, 0.97) 0%, rgba(17, 12, 16, 0.9) 50%, rgba(20, 12, 16, 0.76) 100%),
+    #100d0f;
+  transition: opacity 800ms ease, visibility 800ms ease;
+}
+
+.gate--leaving {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.gate__content {
+  position: relative;
+  z-index: 2;
+  width: min(84vw, 72rem);
+  padding-right: 38%;
+}
+
+.eyebrow,
+.section-rule {
+  color: #ae8588;
+  font-size: 0.67rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.gate h1 {
+  margin: 1.5rem 0 0;
+  color: #f2e9df;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(4.1rem, 9vw, 8.8rem);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.82;
+}
+
+.gate__line {
+  margin: 2rem 0 4.5rem;
+  color: #aa9fa0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+.access-form {
+  width: min(100%, 28rem);
+}
+
+.access-form label {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: #8f7d7f;
+  font-size: 0.63rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.access-form__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  border-bottom: 1px solid rgba(191, 143, 150, 0.34);
+}
+
+.access-form input {
+  min-width: 0;
+  padding: 0.9rem 0;
+  color: #eee5db;
+  border: 0;
+  background: transparent;
+  letter-spacing: 0.25em;
+  outline: 0;
+}
+
+.access-form__row:focus-within {
+  border-color: #ba848c;
+  box-shadow: 0 1px 0 rgba(186, 132, 140, 0.2);
+}
+
+.access-form button {
+  align-self: center;
+  padding: 0.75rem 1.2rem;
+  color: #e8dcD3;
+  border: 1px solid rgba(191, 143, 150, 0.38);
+  background: rgba(93, 43, 55, 0.12);
+  cursor: pointer;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: color 200ms ease, border-color 200ms ease, background 200ms ease;
+}
+
+.access-form button:hover {
+  color: #fff9f0;
+  border-color: rgba(208, 155, 164, 0.75);
+  background: rgba(112, 54, 68, 0.24);
+}
+
+.access-form__meta {
+  display: flex;
+  min-height: 2.8rem;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.75rem;
+  color: #746467;
+  font-size: 0.61rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.form-error {
+  color: #b9878d;
+  letter-spacing: 0.04em;
+  text-align: right;
+  text-transform: none;
+}
+
+.gate__index {
+  position: absolute;
+  right: 5vw;
+  bottom: 4.5vh;
+  color: #57464a;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+}
+
+main {
+  position: relative;
+  outline: 0;
+  animation: page-enter 1.1s ease both;
+}
+
+.persistent-roses {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.persistent-roses .rose-field {
+  opacity: 0.2;
+}
+
+.persistent-roses .rose-bloom--one {
+  top: 15%;
+  right: 2%;
+}
+
+.persistent-roses .rose-bloom--two {
+  right: auto;
+  bottom: 8%;
+  left: 3%;
+}
+
+.persistent-roses .rose-bloom--three {
+  top: 48%;
+  right: -3rem;
+}
+
+.intro,
+.letter-section,
+.closing {
+  position: relative;
+  z-index: 1;
+  width: min(86vw, 72rem);
+  margin: 0 auto;
+}
+
+.intro {
+  display: flex;
+  min-height: 100svh;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 0 7rem;
+}
+
+.section-rule {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(186, 132, 140, 0.2);
+}
+
+.section-rule span:last-child {
+  color: #665458;
+}
+
+.intro__layout {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.78fr) minmax(20rem, 1fr);
+  gap: clamp(4rem, 10vw, 9rem);
+  padding-top: clamp(4rem, 9vw, 7.5rem);
+}
+
+.intro h2 {
+  max-width: 9ch;
+  margin: 0;
+  color: #eadfd5;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(3.3rem, 6vw, 5.9rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+.intro__copy {
+  max-width: 35rem;
+  color: #bbb0aa;
+  font-size: clamp(0.93rem, 1.15vw, 1.02rem);
+  font-weight: 300;
+  line-height: 1.9;
+}
+
+.intro__copy p {
+  margin: 0 0 1.45rem;
+}
+
+.intro__copy p:first-child {
+  color: #e1d4ca;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.55rem;
+  line-height: 1.5;
+}
+
+.continue-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 2.2rem;
+  padding-bottom: 0.4rem;
+  color: #c5959c;
+  border-bottom: 1px solid rgba(197, 149, 156, 0.35);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.continue-link span {
+  font-size: 0.9rem;
+  transition: transform 180ms ease;
+}
+
+.continue-link:hover span {
+  transform: translateY(3px);
+}
+
+.letter-section {
+  padding: 8rem 0 10rem;
+}
+
+.letter {
+  width: min(100%, 46rem);
+  margin: 0 auto;
+  padding-top: clamp(5rem, 10vw, 9rem);
+}
+
+.letter h2 {
+  margin: 0 0 4rem;
+  color: #eee3d8;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(3.1rem, 5vw, 4.6rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+.letter__body {
+  color: #c5bbb4;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.22rem, 1.7vw, 1.43rem);
+  line-height: 1.72;
+}
+
+.letter__body p {
+  margin: 0 0 1.75em;
+}
+
+.letter__body p:first-child::first-letter {
+  float: left;
+  margin: 0.08em 0.12em 0 0;
+  color: #bd8991;
+  font-size: 3.3em;
+  line-height: 0.78;
+}
+
+.letter__body .letter__emphasis {
+  margin: 2.5em 0;
+  color: #f0e5da;
+  font-size: 1.17em;
+  font-style: italic;
+}
+
+.signature {
+  color: #d6bec0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.55rem;
+  font-style: italic;
+}
+
+.letter > .signature {
+  margin: 5rem 0 0;
+  text-align: right;
+}
+
+.closing {
+  display: flex;
+  min-height: 96svh;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 7rem 0 14rem;
+}
+
+.closing::after {
+  position: absolute;
+  z-index: -1;
+  right: -15vw;
+  bottom: -12rem;
+  left: -15vw;
+  height: 26rem;
+  background: linear-gradient(to top, rgba(70, 27, 42, 0.24), transparent);
+  content: "";
+  pointer-events: none;
+}
+
+.closing .rose-field--closing {
+  opacity: 0.7;
+}
+
+.closing__message {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 42rem);
+  margin: auto 0;
+  padding: clamp(7rem, 15vw, 12rem) 0 3rem;
+  color: #ded1c7;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.65rem, 3vw, 2.35rem);
+  line-height: 1.45;
+}
+
+.closing__message p {
+  margin: 0 0 1.5em;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity 800ms ease, transform 900ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 760px) {
+  .rose-bloom {
+    width: 6.5rem;
+    opacity: 0.22;
+  }
+
+  .rose-bloom--one {
+    top: 8%;
+    right: -1.5rem;
+  }
+
+  .rose-bloom--two {
+    right: auto;
+    bottom: 5%;
+    left: -1.5rem;
+    width: 4.5rem;
+  }
+
+  .gate {
+    place-items: end start;
+  }
+
+  .gate__content {
+    width: 100%;
+    padding: 0 8vw 15vh;
+  }
+
+  .gate h1 {
+    font-size: clamp(3.9rem, 20vw, 6.2rem);
+  }
+
+  .gate__line {
+    margin: 1.6rem 0 4rem;
+  }
+
+  .access-form__row {
+    grid-template-columns: 1fr;
+    border: 0;
+    gap: 0.75rem;
+  }
+
+  .access-form input {
+    border-bottom: 1px solid rgba(191, 143, 150, 0.34);
+  }
+
+  .access-form button {
+    justify-self: start;
+    margin-top: 0.5rem;
+  }
+
+  .access-form__meta {
+    flex-direction: column;
+  }
+
+  .form-error {
+    text-align: left;
+  }
+
+  .gate__index {
+    display: none;
+  }
+
+  .intro,
+  .letter-section,
+  .closing {
+    width: min(86vw, 38rem);
+  }
+
+  .intro {
+    padding: 6rem 0;
+  }
+
+  .intro__layout {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    padding-top: 4rem;
+  }
+
+  .intro h2 {
+    max-width: 10ch;
+  }
+
+  .letter-section {
+    padding: 6rem 0 8rem;
+  }
+
+  .letter {
+    padding-top: 5rem;
+  }
+
+  .letter h2 {
+    margin-bottom: 3rem;
+  }
+
+  .persistent-roses .rose-field {
+    opacity: 0.16;
+  }
+
+  .closing {
+    min-height: 92svh;
+    padding: 6rem 0 10rem;
+  }
+
+  .closing .rose-field--closing {
+    opacity: 0.55;
+  }
+
+  .closing__message {
+    padding-top: 8rem;
+  }
+
+}
+
+@media (max-width: 390px) {
+  .gate__content {
+    padding-bottom: 9vh;
+  }
+
+  .gate__line {
+    margin-bottom: 2.7rem;
+  }
+
+  .intro,
+  .letter-section,
+  .closing {
+    width: 88vw;
+  }
+
+  .section-rule {
+    font-size: 0.57rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
